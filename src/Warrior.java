@@ -2,6 +2,8 @@
 public class Warrior extends Classes{
 	private int hitPoints;
 	private int defense;
+	private int damage;
+	private int sDamage;
 	
 	/**
 	 * constructor for the warrior
@@ -9,57 +11,62 @@ public class Warrior extends Classes{
 	 * @param defense - the Warrior's defense
 	 * 
 	 */
-	
-	public Warrior(int hitPoints, int defense) {
+	public Warrior(int hitPoints, int defense, int damage, int sDamage) {
+		this.hitPoints = hitPoints;
+		this.sDamage = sDamage;
+		this.damage = damage;
+		this.defense = defense;
 		
+		}
+	
+	public void setDamage() {
+		damage += 50;
 	}
 	
 	/**
 	 * The warrior's setDamage method will set the warriors damage in between a range
 	 * that we choose.
 	 */
+	public int getDamage() {
+		return damage;
+	}
 
-	public void setDamage() {
-		
+	public void setHitpoints() {
+		hitPoints = 500;
 	}
 	
-	/**
-	 * The warrior's setHitpoints method will set the warrior's hitpoints to a value that
-	 * can be changed if the warrior is attacked.
-	 */
-	public void setHitpoints() {
-		
-	}
 	
 	/**
 	 * returns the warrior's hitPoints
 	 * @return
 	 */
 	public int getHitpoints() {
-		return 0;
-	}
-	
-	/**
-	 * This method will take health away from the warrior
-	 * @param currHP - the warriors current hitpoints
-	 */
-	public void takeDamage(int currHP) {
-		
+		return hitPoints;
 	}
 	
 	/**
 	 * Sets the warriors special attack damage
 	 */
-	public void specialAttackDamage() {
-		
+	public int specialAttack() {
+		sDamage = 100;
+		return sDamage;
+	}
+	public int attack() {
+		return damage;
 	}
 	
-	/**
-	 * Sets the armor of the warrior.
-	 * @param defense - the amount of armor the warrior has
-	 */
-	public void armor(int defense) {
-		
+	public void setsDamage() {
+		sDamage = 100;
+	}
+	public int getsDamage() {
+		return sDamage;
+	}
+	public void setArmor() {
+		defense = 200;
+	}
+	
+	public int getArmor() {
+		return defense;
 	}
 	
 }

@@ -38,11 +38,28 @@ public abstract class Classes {
 		
 	}
 	
+	public String inventory() {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 1; i <= inventory.size(); i++) {
+			sb.append(i + ". " + inventory.get(i));
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
+	
+	public int takeDamage(int dDealt) {
+		hitPoints -= dDealt;
+		return hitPoints;
+	}
+	
 	/**
 	 * This method will check if the hero or enemy is dead
 	 */
 	public boolean isDead() {
-		return true;
+		if (hitPoints == 0) {
+			return true;
+		}
+		return false;
 	}
 }
 
