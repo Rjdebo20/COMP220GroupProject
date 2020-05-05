@@ -1,58 +1,45 @@
-
 public class Demon extends Classes {
 	private int hitPoints;
-	
+	private int defense;
+	private int damage;
+	private int sDamage;
 	/**
-	 * constructor 
+	 * constructor
+	 * 
 	 * @param hitPoints - the demon's hitpoints
 	 * 
 	 */
-	
-	public Demon(int hitPoints) {
-		
-	}
-	
-	/**
-	 * The demon's setDamage method will set the warriors damage in between a range
-	 * that we choose.
-	 */
+	public Demon(int hitPoints, int defense, int damage, int sDamage) {
+		this.hitPoints = hitPoints;
+		this.sDamage = sDamage;
+		this.damage = damage;
+		this.defense = defense;
 
-	public void setDamage() {
-		
 	}
-	
-	/**
-	 * The demon's setHitpoints method will set the demon's hitpoints to a value that
-	 * can be changed if the warrior is attacked.
-	 */
-	public void setHitpoints() {
-		
+	public void setDamage(int damage) {
+		this.damage = damage;
 	}
-	
-	/**
-	 * returns the demon's hitPoints
-	 * @return
-	 */
-	
-	public int getHitpoints() {
-		return 0;
+	public int getDamge() {
+		return damage;
 	}
-	
-	/**
-	 * This method will take health away from the demon
-	 * @param currHP - the demon's current hitpoints
-	 */
-	
-	public void takeDamage(int currHP) {
-		
+
+	//set hitpoints
+	public void setHitpoints(int hitpoints) {
+		this.hitPoints = hitpoints;
 	}
-	
+	//get hitpoints
+	public int getHitPoints() {
+		return hitPoints;
+	}
+
+
 	/**
 	 * Sets the warriors special attack damage
 	 */
-	
+
 	public void specialAttackDamage() {
-		
+
 	}
-	
+
+
 }
