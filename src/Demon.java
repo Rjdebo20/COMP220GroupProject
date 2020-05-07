@@ -4,10 +4,11 @@ public class Demon extends Classes {
 	private int damage;
 	private int sDamage;
 	/**
-	 * constructor
 	 * 
-	 * @param hitPoints - the demon's hitpoints
-	 * 
+	 * @param hitPoints - Demon's hitpoints
+	 * @param defense
+	 * @param damage
+	 * @param sDamage
 	 */
 	public Demon(int hitPoints, int defense, int damage, int sDamage) {
 		this.hitPoints = hitPoints;
@@ -19,7 +20,7 @@ public class Demon extends Classes {
 	public void setDamage(int damage) {
 		this.damage = damage;
 	}
-	public int getDamge() {
+	public int getDamage() {
 		return damage;
 	}
 
@@ -28,18 +29,16 @@ public class Demon extends Classes {
 		this.hitPoints = hitpoints;
 	}
 	//get hitpoints
-	public int getHitPoints() {
+	public int getHitpoints() {
 		return hitPoints;
 	}
-
-
-	/**
-	 * Sets the warriors special attack damage
-	 */
-
-	public void specialAttackDamage() {
-
+	public int getArmor() {
+		return defense;
 	}
+	public void setArmor(int armor) {
+		this.defense = armor;
+	}
+
 
 
 }

@@ -1,4 +1,5 @@
 
 public abstract class Item {
-	public abstract int effect(Classes thisClass);
+	public abstract void effect(Classes thisClass);
+	public abstract String getName();
 }

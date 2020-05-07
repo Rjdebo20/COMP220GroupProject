@@ -1,14 +1,21 @@
 
 public class ResStone extends Item{
-	public int effect(Classes thisClass) {
-		if (thisClass.hitPoints == 0) {
+	private int revive;
+	public void effect(Classes warrior) {
+		if (warrior.getHitpoints() <= 0) {
+			revive = warrior.getHitpoints() + 10;
+			warrior.setHitpoints(revive);
 			System.out.println("You have revived yourself!");
-			thisClass.inventory.remove(thisClass.itemIndex);
+			
+			warrior.inventory.remove(warrior.itemIndex);
 		}
-		else if((thisClass.hitPoints > 1) && (thisClass.hitPoints <= 10)) {
+		else if((warrior.getHitpoints() > 1) && (warrior.getHitpoints() <= 10)) {
 			System.out.println("You are still alive!");
-			return thisClass.hitPoints;
+			revive = warrior.getHitpoints();
+			warrior.setHitpoints(revive);
 		}
-			return thisClass.hitPoints + 10;
+	}
+	public String getName() {
+		return "Resurrection Stone";
 	}
 }

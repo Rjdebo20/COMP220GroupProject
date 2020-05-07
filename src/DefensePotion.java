@@ -1,17 +1,25 @@
 
 public class DefensePotion extends Item{
-	public int effect(Classes thisClass) {
-		if (thisClass.defense == 2) {
+	private int defense;
+	
+	public void effect(Classes warrior) {
+		if (warrior.getArmor() == 2) {
 			System.out.println("Your defense is intact!");
-			return thisClass.defense;
+			defense = warrior.getArmor();
+			warrior.setArmor(defense);
 		}
-		else if(thisClass.defense == 1) {
-			thisClass.inventory.remove(thisClass.itemIndex);
-			return thisClass.defense + 1;
+		else if(warrior.getArmor() == 1) {
+			warrior.inventory.remove(warrior.itemIndex);
+			defense = warrior.getArmor() + 1;
+			warrior.setArmor(defense);
 		}
-		else if(thisClass.defense == 2) {
-			thisClass.inventory.remove(thisClass.itemIndex);
+		else if(warrior.getArmor() == 0) {
+			warrior.inventory.remove(warrior.itemIndex);
+			defense = warrior.getArmor() + 2;
+			warrior.setArmor(defense);
+		}
 	}
-		return thisClass.defense + 2;
+	public String getName() {
+		return "Defense Potion";
 	}
 }

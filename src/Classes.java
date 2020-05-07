@@ -16,8 +16,8 @@ public abstract class Classes {
 	 */
 	public boolean block() {
 		randGen = new Random();
-		int block = randGen.nextInt((15)) + 1;
-		if (block == 5) {
+		int block = randGen.nextInt((3)) + 1;
+		if (block == 1) {
 			return true;
 		}
 		return false;
@@ -42,9 +42,9 @@ public abstract class Classes {
 	 * @param item - the item being added.
 	 */
 	public void addItem(Item item) {
-		if (inventory.size() <= 10) {
-			inventory.add(item);
-			System.out.println(item + " was added to your inventory.");
+		if (inventory.size() <= 9) {
+			this.inventory.add(item);
+			System.out.println(item.getName() + " was added to your inventory.");
 			int counter = 0;
 			for(int i = 0;i < inventory.size(); i++) {
 				counter++;
@@ -52,16 +52,23 @@ public abstract class Classes {
 			int slots = 10 - counter;
 			System.out.println("You have " + slots + " slots left in your inventory.");
 		}
-		else {
+		else if (inventory.size() == 10){
 			System.out.println("Your inventory is full!");
 		}
-	}
+		
+}
+	
 	
 	public String inventory() {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 1; i <= inventory.size(); i++) {
-			sb.append(i + ". " + inventory.get(i));
+		if (inventory.size() > 0) {
+		for (int i = 0; i < inventory.size(); i++) {
+			sb.append((i+1) + ". " + inventory.get(i).getName());
 			sb.append("\n");
+		}
+		}
+		else if(inventory.size() == 0) {
+			return "Your inventory is empty!";
 		}
 		return sb.toString();
 	}
@@ -83,15 +90,21 @@ public abstract class Classes {
 	public Item getItem() {
 		Scanner in = new Scanner(System.in);
 		System.out.println("What item..");
+		System.out.println(this.inventory());
 		int i = 0;
 		i = in.nextInt();
-		in.close();
 		itemIndex = i - 1;
-		return inventory.get(i - 1);
+		return this.inventory.get(itemIndex);
 	}
 	public void useItem(Item item) {
 		item.effect(this);
 	}
+	
+	public abstract int getArmor();
+	
+	public abstract int getHitpoints();
+	
+	public abstract void setArmor(int armor);
 		
 }
 
